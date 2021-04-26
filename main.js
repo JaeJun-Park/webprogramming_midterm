@@ -1,8 +1,3 @@
-window.addEventListener('DOMContentLoaded', () => { // The DOMContentLoaded event fires when the intial HTML document has been completly loaded and parsed.
-
-});
-
-
 let addTodo = document.querySelector("#add-todo");
 let todoTitle = document.querySelector("#todo-title");
 let todoDescription = document.querySelector("#todo-description");
