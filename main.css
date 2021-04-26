@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+header .logo span {
+    color: white;
+    background-color: black;
+    padding: 2px;
+    margin-right: 8px;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.card {
+    border-radius: 4px;
+}
+
+form input {
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    padding-left: 15px;
+}
+
+.btn {
+    width: 100px;
+    font-weight: 700;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    color: grey;
+}
+
+#error-alert {
+    display: none;
+}
