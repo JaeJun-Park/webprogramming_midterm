@@ -1,6 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => { // The DOMContentLoaded event fires when the intial HTML document has been completly loaded and parsed.
 
 });
+
+
+let addTodo = document.querySelector("#add-todo");
+let todoTitle = document.querySelector("#todo-title");
+let todoDescription = document.querySelector("#todo-description");
+let table = document.querySelector("#todo-table");
+let errorAlert = document.querySelector("#error-alert");
+let id = 0;
+let todoList = new Map();
 let updateTable = () => {
     while (table.firstElementChild) {
         table.firstElementChild.parentElement.removeChild(table.firstElementChild);
@@ -9,9 +18,9 @@ let updateTable = () => {
 
     let todos = Array.from(todoList.values());
     todos.reverse();
-
+    console.log('@')
     todos.forEach((todo) => {
-        console.log(`${todo.id}, done: ${todo.done}`);
+        console.log(todo);
         let done = todo.done ? `<span class="badge bg-success">done</span>` : `<span class="badge bg-danger">not-done</span>`;
         let checked = todo.done ? `<input type="checkbox" data-id="${todo.id}" checked class="form-check-input"></input>` : `<input type="checkbox" data-id="${todo.id}" class="form-check-input"></input>`;
         rows += `<tr>
@@ -27,19 +36,11 @@ let updateTable = () => {
          </td>
     </tr>`;
     });
+    console.log('@')
     table.innerHTML = rows;
 }
 
-let addTodo = document.querySelector("#add-todo");
-let todoTitle = document.querySelector("#todo-title");
-let todoDescription = document.querySelector("#todo-description");
-let table = document.querySelector("#todo-table");
-let errorAlert = document.querySelector("#error-alert");
-
-let todoList = new Map();
-
 document.addEventListener("click", (event) => {
-    console.log(event.target);
     if (event.target.classList.contains("fa-trash")) {
         let delete_id = Number(event.target.closest('.delete-btn').dataset.id);
         event.target.closest('tr').remove();
@@ -62,7 +63,7 @@ addTodo.addEventListener("click", () => {
         done: false,
     };
     if (todo.title) {
-        let id = todoList.size + 1;
+        id++;
         todo.id = id;
         todoList.set(id, todo); // 할일담todo객체를 todoList라는 Map객체 저장
 
